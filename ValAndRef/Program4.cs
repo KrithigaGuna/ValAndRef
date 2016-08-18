@@ -11,7 +11,7 @@ namespace ValAndRef
         public static void Main()
         {
             int[] arr1 = new int[] { 1, 2, 3, 4, 5 };
-            int[] arr2 = new int[] { 10, 20, 30, 40, 50 };
+            int[] arr2 = new int[] { 10, 20, 30, 40, 50,60,70 };
 
             Program2.PrintArray(arr1);
             Program2.PrintArray(arr2);
@@ -25,20 +25,20 @@ namespace ValAndRef
             SwapArrayWithRef(ref arr1, ref arr2);
             Program2.PrintArray(arr1);
             Program2.PrintArray(arr2);
-        }
 
-        public static void SwapValue (int a, int b)
-        {
-            int tmp = b;
-            a = b;
-            b = tmp;
-        }
+            int[] arr3 = CopyArray(arr2);
+            Program2.PrintArray(arr3);
 
-        public static void SwapValueWithRef(ref int a, ref int b)
-        {
-            int tmp = b;
-            a = b;
-            b = tmp;
+            int[] arr4 = new int[arr2.Length];
+            Array.Copy(arr2, arr4, arr2.Length);
+            Program2.PrintArray(arr4);
+
+            int[] arr5 = (int[]) arr2.Clone();
+            arr5[0] = 1000;
+            Program2.PrintArray(arr5);
+            Program2.PrintArray(arr2);
+
+
         }
 
         public static void SwapArray(int[] a, int[] b)
@@ -53,6 +53,18 @@ namespace ValAndRef
             int[] temp = b;
             b = a;
             a = temp;
+        }
+
+        public static int[] CopyArray(int[] a)
+        {
+            int[] theCopy = new int[a.Length];
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                theCopy[i] = a[i];
+            }
+
+            return theCopy;
         }
     }
 }

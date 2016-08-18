@@ -25,15 +25,15 @@ namespace ValAndRef
         public static void SwapValue (int a, int b)
         {
             int tmp = b;
-            a = b;
-            b = tmp;
+            b = a;
+            a = tmp;
         }
 
         public static void SwapValueWithRef(ref int a, ref int b)
         {
             int tmp = b;
-            a = b;
-            b = tmp;
+            b = a;
+            a = tmp;
         }
 
         public static void SwapArray(int[] a, int[] b)
